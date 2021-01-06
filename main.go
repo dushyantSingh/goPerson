@@ -14,9 +14,11 @@ var router = gin.Default()
 
 func main() {
 	router.GET("/", index)
-	router.DELETE("/person/:name", founder)
 	router.GET("/person", handlers.GetPerson)
+	router.GET("/person/:name", handlers.GetSinglePerson)
 	router.POST("/person", handlers.PostPerson)
+	router.PUT("/person/:name", handlers.UpdatePerson)
+	router.DELETE("/person/:name", handlers.DeletePerson)
 	router.GET("/founder", founder)
 	log.Fatal(router.Run(":8080"))
 }
